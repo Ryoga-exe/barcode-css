@@ -1,0 +1,32 @@
+//- template.pug
+- const digits = [9,8,7,6,5,4,3,2,1,0]
+
+mixin digit(group, cls)
+  div(class=cls)
+    each n, i in digits
+      - const id = `${group}-${i}`
+        input(type='radio' id=id name=group, value=n checked=(n === 0))
+        label(for=id)= n
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title
+    link(rel='stylesheet', href='barcode.css')
+  body
+    +digit('input01', 'digit01')
+    +digit('input02', 'digit02')
+    +digit('input03', 'digit03')
+    +digit('input04', 'digit04')
+    +digit('input05', 'digit05')
+    +digit('input06', 'digit06')
+    +digit('input07', 'digit07')
+    +digit('input08', 'digit08')
+    +digit('input09', 'digit09')
+    +digit('input10', 'digit10')
+    +digit('input11', 'digit11')
+    +digit('input12', 'digit12')
+    +digit('input13', 'digit13')
+    #total

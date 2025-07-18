@@ -1,0 +1,61 @@
+body {
+  counter-reset: total;
+}
+
+.digit01 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit02 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit03 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit04 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit05 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit06 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit07 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit08 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit09 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit10 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit11 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit12 :checked ~ input {
+  counter-increment: total;
+}
+
+.digit13 :checked ~ input {
+  counter-increment: total;
+}
+
+#total::after {
+  content: counter(total);
+}
+
+/*# sourceMappingURL=barcode.css.map */

@@ -1,0 +1,18 @@
+// barcode.scss
+body {
+  counter-reset: total;
+}
+
+@function zpad($n) {
+  @return if($n < 10, "0#{$n}", $n);
+}
+
+@for $i from 1 through 13 {
+  .digit#{zpad($i)} :checked ~ input {
+    counter-increment: total;
+  }
+}
+
+#total::after {
+  content: counter(total);
+}
