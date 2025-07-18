@@ -1,18 +1,48 @@
 // barcode.scss
-body {
-  counter-reset: total;
-}
-
 @function zpad($n) {
   @return if($n < 10, "0#{$n}", $n);
 }
 
-@for $i from 1 through 13 {
-  .digit#{zpad($i)} :checked ~ input {
-    counter-increment: total;
+:root {
+  @for $i from 0 through 11 {
+    --d#{zpad($i)}: 0;
   }
 }
 
-#total::after {
-  content: counter(total);
+@for $digit from 0 through 11 {
+  $cls: "digit#{zpad($digit)}";
+
+  @for $val from 0 through 9 {
+    :root:has(.#{$cls} input[value="#{$val}"]:checked) {
+      --d#{zpad($digit)}: #{$val};
+    }
+  }
+}
+
+:root {
+  --sum-even: calc(
+    var(--d00) + var(--d02) + var(--d04) + var(--d06) + var(--d08) + var(--d10)
+  );
+  --sum-odd: calc(
+    var(--d01) + var(--d03) + var(--d05) + var(--d07) + var(--d09) + var(--d11)
+  );
+  --check-digit: rem(
+    calc(10 - rem(calc(var(--sum-odd) * 3 + var(--sum-even)), 10)),
+    10
+  );
+}
+
+#sum-even-digits::after {
+  counter-reset: val var(--sum-even);
+  content: counter(val);
+}
+
+#sum-odd-digits::after {
+  counter-reset: val var(--sum-odd);
+  content: counter(val);
+}
+
+#check-digit::after {
+  counter-reset: val var(--check-digit);
+  content: counter(val);
 }

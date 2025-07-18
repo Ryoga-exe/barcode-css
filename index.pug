@@ -1,5 +1,5 @@
-//- template.pug
-- const digits = [9,8,7,6,5,4,3,2,1,0]
+//- index.pug
+- const digits = [0,1,2,3,4,5,6,7,8,9]
 
 mixin digit(group, cls)
   div(class=cls)
@@ -16,17 +16,19 @@ html(lang='en')
     title
     link(rel='stylesheet', href='barcode.css')
   body
-    +digit('input01', 'digit01')
-    +digit('input02', 'digit02')
-    +digit('input03', 'digit03')
-    +digit('input04', 'digit04')
-    +digit('input05', 'digit05')
-    +digit('input06', 'digit06')
-    +digit('input07', 'digit07')
-    +digit('input08', 'digit08')
-    +digit('input09', 'digit09')
-    +digit('input10', 'digit10')
-    +digit('input11', 'digit11')
-    +digit('input12', 'digit12')
-    +digit('input13', 'digit13')
-    #total
+    .digit-inputs
+      +digit('input00', 'digit00')
+      +digit('input01', 'digit01')
+      +digit('input02', 'digit02')
+      +digit('input03', 'digit03')
+      +digit('input04', 'digit04')
+      +digit('input05', 'digit05')
+      +digit('input06', 'digit06')
+      +digit('input07', 'digit07')
+      +digit('input08', 'digit08')
+      +digit('input09', 'digit09')
+      +digit('input10', 'digit10')
+      +digit('input11', 'digit11')
+    #sum-even-digits
+    #sum-odd-digits
+    #check-digit

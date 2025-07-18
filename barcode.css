@@ -1,61 +1,524 @@
-body {
-  counter-reset: total;
+:root {
+  --d00: 0;
+  --d01: 0;
+  --d02: 0;
+  --d03: 0;
+  --d04: 0;
+  --d05: 0;
+  --d06: 0;
+  --d07: 0;
+  --d08: 0;
+  --d09: 0;
+  --d10: 0;
+  --d11: 0;
 }
 
-.digit01 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="0"]:checked) {
+  --d00: 0;
 }
 
-.digit02 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="1"]:checked) {
+  --d00: 1;
 }
 
-.digit03 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="2"]:checked) {
+  --d00: 2;
 }
 
-.digit04 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="3"]:checked) {
+  --d00: 3;
 }
 
-.digit05 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="4"]:checked) {
+  --d00: 4;
 }
 
-.digit06 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="5"]:checked) {
+  --d00: 5;
 }
 
-.digit07 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="6"]:checked) {
+  --d00: 6;
 }
 
-.digit08 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="7"]:checked) {
+  --d00: 7;
 }
 
-.digit09 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="8"]:checked) {
+  --d00: 8;
 }
 
-.digit10 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit00 input[value="9"]:checked) {
+  --d00: 9;
 }
 
-.digit11 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit01 input[value="0"]:checked) {
+  --d01: 0;
 }
 
-.digit12 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit01 input[value="1"]:checked) {
+  --d01: 1;
 }
 
-.digit13 :checked ~ input {
-  counter-increment: total;
+:root:has(.digit01 input[value="2"]:checked) {
+  --d01: 2;
 }
 
-#total::after {
-  content: counter(total);
+:root:has(.digit01 input[value="3"]:checked) {
+  --d01: 3;
+}
+
+:root:has(.digit01 input[value="4"]:checked) {
+  --d01: 4;
+}
+
+:root:has(.digit01 input[value="5"]:checked) {
+  --d01: 5;
+}
+
+:root:has(.digit01 input[value="6"]:checked) {
+  --d01: 6;
+}
+
+:root:has(.digit01 input[value="7"]:checked) {
+  --d01: 7;
+}
+
+:root:has(.digit01 input[value="8"]:checked) {
+  --d01: 8;
+}
+
+:root:has(.digit01 input[value="9"]:checked) {
+  --d01: 9;
+}
+
+:root:has(.digit02 input[value="0"]:checked) {
+  --d02: 0;
+}
+
+:root:has(.digit02 input[value="1"]:checked) {
+  --d02: 1;
+}
+
+:root:has(.digit02 input[value="2"]:checked) {
+  --d02: 2;
+}
+
+:root:has(.digit02 input[value="3"]:checked) {
+  --d02: 3;
+}
+
+:root:has(.digit02 input[value="4"]:checked) {
+  --d02: 4;
+}
+
+:root:has(.digit02 input[value="5"]:checked) {
+  --d02: 5;
+}
+
+:root:has(.digit02 input[value="6"]:checked) {
+  --d02: 6;
+}
+
+:root:has(.digit02 input[value="7"]:checked) {
+  --d02: 7;
+}
+
+:root:has(.digit02 input[value="8"]:checked) {
+  --d02: 8;
+}
+
+:root:has(.digit02 input[value="9"]:checked) {
+  --d02: 9;
+}
+
+:root:has(.digit03 input[value="0"]:checked) {
+  --d03: 0;
+}
+
+:root:has(.digit03 input[value="1"]:checked) {
+  --d03: 1;
+}
+
+:root:has(.digit03 input[value="2"]:checked) {
+  --d03: 2;
+}
+
+:root:has(.digit03 input[value="3"]:checked) {
+  --d03: 3;
+}
+
+:root:has(.digit03 input[value="4"]:checked) {
+  --d03: 4;
+}
+
+:root:has(.digit03 input[value="5"]:checked) {
+  --d03: 5;
+}
+
+:root:has(.digit03 input[value="6"]:checked) {
+  --d03: 6;
+}
+
+:root:has(.digit03 input[value="7"]:checked) {
+  --d03: 7;
+}
+
+:root:has(.digit03 input[value="8"]:checked) {
+  --d03: 8;
+}
+
+:root:has(.digit03 input[value="9"]:checked) {
+  --d03: 9;
+}
+
+:root:has(.digit04 input[value="0"]:checked) {
+  --d04: 0;
+}
+
+:root:has(.digit04 input[value="1"]:checked) {
+  --d04: 1;
+}
+
+:root:has(.digit04 input[value="2"]:checked) {
+  --d04: 2;
+}
+
+:root:has(.digit04 input[value="3"]:checked) {
+  --d04: 3;
+}
+
+:root:has(.digit04 input[value="4"]:checked) {
+  --d04: 4;
+}
+
+:root:has(.digit04 input[value="5"]:checked) {
+  --d04: 5;
+}
+
+:root:has(.digit04 input[value="6"]:checked) {
+  --d04: 6;
+}
+
+:root:has(.digit04 input[value="7"]:checked) {
+  --d04: 7;
+}
+
+:root:has(.digit04 input[value="8"]:checked) {
+  --d04: 8;
+}
+
+:root:has(.digit04 input[value="9"]:checked) {
+  --d04: 9;
+}
+
+:root:has(.digit05 input[value="0"]:checked) {
+  --d05: 0;
+}
+
+:root:has(.digit05 input[value="1"]:checked) {
+  --d05: 1;
+}
+
+:root:has(.digit05 input[value="2"]:checked) {
+  --d05: 2;
+}
+
+:root:has(.digit05 input[value="3"]:checked) {
+  --d05: 3;
+}
+
+:root:has(.digit05 input[value="4"]:checked) {
+  --d05: 4;
+}
+
+:root:has(.digit05 input[value="5"]:checked) {
+  --d05: 5;
+}
+
+:root:has(.digit05 input[value="6"]:checked) {
+  --d05: 6;
+}
+
+:root:has(.digit05 input[value="7"]:checked) {
+  --d05: 7;
+}
+
+:root:has(.digit05 input[value="8"]:checked) {
+  --d05: 8;
+}
+
+:root:has(.digit05 input[value="9"]:checked) {
+  --d05: 9;
+}
+
+:root:has(.digit06 input[value="0"]:checked) {
+  --d06: 0;
+}
+
+:root:has(.digit06 input[value="1"]:checked) {
+  --d06: 1;
+}
+
+:root:has(.digit06 input[value="2"]:checked) {
+  --d06: 2;
+}
+
+:root:has(.digit06 input[value="3"]:checked) {
+  --d06: 3;
+}
+
+:root:has(.digit06 input[value="4"]:checked) {
+  --d06: 4;
+}
+
+:root:has(.digit06 input[value="5"]:checked) {
+  --d06: 5;
+}
+
+:root:has(.digit06 input[value="6"]:checked) {
+  --d06: 6;
+}
+
+:root:has(.digit06 input[value="7"]:checked) {
+  --d06: 7;
+}
+
+:root:has(.digit06 input[value="8"]:checked) {
+  --d06: 8;
+}
+
+:root:has(.digit06 input[value="9"]:checked) {
+  --d06: 9;
+}
+
+:root:has(.digit07 input[value="0"]:checked) {
+  --d07: 0;
+}
+
+:root:has(.digit07 input[value="1"]:checked) {
+  --d07: 1;
+}
+
+:root:has(.digit07 input[value="2"]:checked) {
+  --d07: 2;
+}
+
+:root:has(.digit07 input[value="3"]:checked) {
+  --d07: 3;
+}
+
+:root:has(.digit07 input[value="4"]:checked) {
+  --d07: 4;
+}
+
+:root:has(.digit07 input[value="5"]:checked) {
+  --d07: 5;
+}
+
+:root:has(.digit07 input[value="6"]:checked) {
+  --d07: 6;
+}
+
+:root:has(.digit07 input[value="7"]:checked) {
+  --d07: 7;
+}
+
+:root:has(.digit07 input[value="8"]:checked) {
+  --d07: 8;
+}
+
+:root:has(.digit07 input[value="9"]:checked) {
+  --d07: 9;
+}
+
+:root:has(.digit08 input[value="0"]:checked) {
+  --d08: 0;
+}
+
+:root:has(.digit08 input[value="1"]:checked) {
+  --d08: 1;
+}
+
+:root:has(.digit08 input[value="2"]:checked) {
+  --d08: 2;
+}
+
+:root:has(.digit08 input[value="3"]:checked) {
+  --d08: 3;
+}
+
+:root:has(.digit08 input[value="4"]:checked) {
+  --d08: 4;
+}
+
+:root:has(.digit08 input[value="5"]:checked) {
+  --d08: 5;
+}
+
+:root:has(.digit08 input[value="6"]:checked) {
+  --d08: 6;
+}
+
+:root:has(.digit08 input[value="7"]:checked) {
+  --d08: 7;
+}
+
+:root:has(.digit08 input[value="8"]:checked) {
+  --d08: 8;
+}
+
+:root:has(.digit08 input[value="9"]:checked) {
+  --d08: 9;
+}
+
+:root:has(.digit09 input[value="0"]:checked) {
+  --d09: 0;
+}
+
+:root:has(.digit09 input[value="1"]:checked) {
+  --d09: 1;
+}
+
+:root:has(.digit09 input[value="2"]:checked) {
+  --d09: 2;
+}
+
+:root:has(.digit09 input[value="3"]:checked) {
+  --d09: 3;
+}
+
+:root:has(.digit09 input[value="4"]:checked) {
+  --d09: 4;
+}
+
+:root:has(.digit09 input[value="5"]:checked) {
+  --d09: 5;
+}
+
+:root:has(.digit09 input[value="6"]:checked) {
+  --d09: 6;
+}
+
+:root:has(.digit09 input[value="7"]:checked) {
+  --d09: 7;
+}
+
+:root:has(.digit09 input[value="8"]:checked) {
+  --d09: 8;
+}
+
+:root:has(.digit09 input[value="9"]:checked) {
+  --d09: 9;
+}
+
+:root:has(.digit10 input[value="0"]:checked) {
+  --d10: 0;
+}
+
+:root:has(.digit10 input[value="1"]:checked) {
+  --d10: 1;
+}
+
+:root:has(.digit10 input[value="2"]:checked) {
+  --d10: 2;
+}
+
+:root:has(.digit10 input[value="3"]:checked) {
+  --d10: 3;
+}
+
+:root:has(.digit10 input[value="4"]:checked) {
+  --d10: 4;
+}
+
+:root:has(.digit10 input[value="5"]:checked) {
+  --d10: 5;
+}
+
+:root:has(.digit10 input[value="6"]:checked) {
+  --d10: 6;
+}
+
+:root:has(.digit10 input[value="7"]:checked) {
+  --d10: 7;
+}
+
+:root:has(.digit10 input[value="8"]:checked) {
+  --d10: 8;
+}
+
+:root:has(.digit10 input[value="9"]:checked) {
+  --d10: 9;
+}
+
+:root:has(.digit11 input[value="0"]:checked) {
+  --d11: 0;
+}
+
+:root:has(.digit11 input[value="1"]:checked) {
+  --d11: 1;
+}
+
+:root:has(.digit11 input[value="2"]:checked) {
+  --d11: 2;
+}
+
+:root:has(.digit11 input[value="3"]:checked) {
+  --d11: 3;
+}
+
+:root:has(.digit11 input[value="4"]:checked) {
+  --d11: 4;
+}
+
+:root:has(.digit11 input[value="5"]:checked) {
+  --d11: 5;
+}
+
+:root:has(.digit11 input[value="6"]:checked) {
+  --d11: 6;
+}
+
+:root:has(.digit11 input[value="7"]:checked) {
+  --d11: 7;
+}
+
+:root:has(.digit11 input[value="8"]:checked) {
+  --d11: 8;
+}
+
+:root:has(.digit11 input[value="9"]:checked) {
+  --d11: 9;
+}
+
+:root {
+  --sum-even: calc(
+    var(--d00) + var(--d02) + var(--d04) + var(--d06) + var(--d08) + var(--d10)
+  );
+  --sum-odd: calc(
+    var(--d01) + var(--d03) + var(--d05) + var(--d07) + var(--d09) + var(--d11)
+  );
+  --check-digit: rem(
+    calc(10 - rem(calc(var(--sum-odd) * 3 + var(--sum-even)), 10)),
+    10
+  );
+}
+
+#sum-even-digits::after {
+  counter-reset: val var(--sum-even);
+  content: counter(val);
+}
+
+#sum-odd-digits::after {
+  counter-reset: val var(--sum-odd);
+  content: counter(val);
+}
+
+#check-digit::after {
+  counter-reset: val var(--check-digit);
+  content: counter(val);
 }
 
 /*# sourceMappingURL=barcode.css.map */
