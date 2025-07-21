@@ -42,6 +42,22 @@
   background: rgb(0, 0, 0);
   height: var(--guardbar-height);
 }
+#barcode .left-databar {
+  --tmp-s0: var(--d00);
+  --s0: mod(var(--tmp-s0), 2);
+  --tmp-s1: calc((var(--tmp-s0) - var(--s0)) / 2);
+  --s1: mod(var(--tmp-s1), 2);
+  --tmp-s2: calc((var(--tmp-s1) - var(--s1)) / 2);
+  --s2: mod(var(--tmp-s2), 2);
+  --tmp-s3: calc((var(--tmp-s2) - var(--s2)) / 2);
+  --s3: mod(var(--tmp-s3), 2);
+  --p0: 0;
+  --p1: calc(1 - (1 - var(--s2)) * (1 - var(--s3)));
+  --p2: calc(1 - (1 - var(--s0) * (1 - var(--s1)) * (1 - var(--s2))) * (1 - var(--s0) * (1 - var(--s1)) * (1 - var(--s3))) * (1 - var(--s0) * (1 - var(--s2)) * (1 - var(--s3))) * (1 - var(--s1) * (1 - var(--s0)) * (1 - var(--s3))));
+  --p3: calc(1 - (1 - var(--s1) * (1 - var(--s3))) * (1 - var(--s3) * (1 - var(--s2)) * (1 - var(--s1)) * (1 - var(--s0))));
+  --p4: calc(1 - (1 - var(--s0) * (1 - var(--s2)) * (1 - var(--s3))) * (1 - var(--s3) * (1 - var(--s1)) * (1 - var(--s2))) * (1 - var(--s2) * (1 - var(--s0)) * (1 - var(--s1)) * (1 - var(--s3))));
+  --p5: calc(1 - (1 - var(--s0) * var(--s2) * (1 - var(--s3))) * (1 - var(--s0) * (1 - var(--s1)) * (1 - var(--s3))) * (1 - var(--s2) * (1 - var(--s1)) * (1 - var(--s3))) * (1 - var(--s1) * (1 - var(--s0)) * (1 - var(--s2)) * (1 - var(--s3))));
+}
 #barcode .right-databar .datachar:nth-child(1) {
   --tmp0: var(--d07);
   --t0: mod(var(--tmp0), 2);

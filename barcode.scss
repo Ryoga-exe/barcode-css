@@ -89,8 +89,106 @@
     }
   }
 
+  .left-databar {
+    // process prefix-character (d00) and generate parity pattern
+
+    // to binary
+    @for $j from 0 through 3 {
+      @if $j == 0 {
+        --tmp-s#{$j}: var(--d00);
+      } @else {
+        --tmp-s#{$j}: calc((var(--tmp-s#{$j - 1}) - var(--s#{$j - 1})) / 2);
+      }
+      --s#{$j}: mod(var(--tmp-s#{$j}), 2);
+    }
+
+    $s0: var(--s0);
+    $s1: var(--s1);
+    $s2: var(--s2);
+    $s3: var(--s3);
+
+    // 0: 000000
+    // 1: 001011
+    // 2: 001101
+    // 3: 001110
+    // 4: 010011
+    // 5: 011001
+    // 6: 011100
+    // 7: 010101
+    // 8: 010110
+    // 9: 011010
+
+    // always 0
+    $p0: 0;
+
+    //   !s3 *  s2 * !s1 * !s0
+    // + !s3 *  s2 * !s1 *  s0
+    // + !s3 *  s2 *  s1 * !s0
+    // + !s3 *  s2 *  s1 *  s0
+    // +  s3 * !s2 * !s1 * !s0
+    // +  s3 * !s2 * !s1 *  s0
+    // = s2 + s3
+    $p1: OR($s2, $s3);
+
+    //   !s3 * !s2 * !s1 *  s0
+    // + !s3 * !s2 *  s1 * !s0
+    // + !s3 * !s2 *  s1 *  s0
+    // + !s3 *  s2 * !s1 *  s0
+    // + !s3 *  s2 *  s1 * !s0
+    // +  s3 * !s2 * !s1 *  s0
+    // = s0*!s1*!s2 + s0*!s1*!s3 + s0*!s2*!s3 + s1*!s0*!s3
+    $p2: OR4(
+      AND3($s0, NOT($s1), NOT($s2)),
+      AND3($s0, NOT($s1), NOT($s3)),
+      AND3($s0, NOT($s2), NOT($s3)),
+      AND3($s1, NOT($s0), NOT($s3))
+    );
+
+    //   !s3 * !s2 *  s1 * !s0
+    // + !s3 * !s2 *  s1 *  s0
+    // + !s3 *  s2 *  s1 * !s0
+    // + !s3 *  s2 *  s1 *  s0
+    // +  s3 * !s2 * !s1 * !s0
+    // = s1*!s3 + s3*!s2*!s1*!s0
+    $p3: OR(AND($s1, NOT($s3)), AND4($s3, NOT($s2), NOT($s1), NOT($s0)));
+
+    //   !s3 * !s2 * !s1 *  s0
+    // + !s3 * !s2 *  s1 *  s0
+    // + !s3 *  s2 * !s1 * !s0
+    // +  s3 * !s2 * !s1 * !s0
+    // +  s3 * !s2 * !s1 *  s0
+    // = s0*!s2*!s3 + s3*!s1*!s2 + s2*!s0*!s1*!s3
+    $p4: OR3(
+      AND3($s0, NOT($s2), NOT($s3)),
+      AND3($s3, NOT($s1), NOT($s2)),
+      AND4($s2, NOT($s0), NOT($s1), NOT($s3))
+    );
+
+    //   !s3 * !s2 * !s1 *  s0
+    // + !s3 * !s2 *  s1 * !s0
+    // + !s3 *  s2 * !s1 * !s0
+    // + !s3 *  s2 * !s1 *  s0
+    // + !s3 * !s2 * !s1 *  s0
+    // = s0*s2*!s3 + s0*!s1*!s3 + s2*!s1*!s3 + s1*!s0*!s2*!s3
+    $p5: OR4(
+      AND3($s0, $s2, NOT($s3)),
+      AND3($s0, NOT($s1), NOT($s3)),
+      AND3($s2, NOT($s1), NOT($s3)),
+      AND4($s1, NOT($s0), NOT($s2), NOT($s3))
+    );
+
+    --p0: #{$p0};
+    --p1: #{$p1};
+    --p2: #{$p2};
+    --p3: #{$p3};
+    --p4: #{$p4};
+    --p5: #{$p5};
+
+    // process d01, ..., d6
+  }
+
   .right-databar {
-    // process d07 ... d11 and d12 (check-digit)
+    // process d07, ..., d11 and d12 (check-digit)
     @for $i from 0 through 5 {
       .datachar:nth-child(#{$i + 1}) {
         $t: "--d#{zpad(7 + $i)}";
