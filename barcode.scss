@@ -131,24 +131,44 @@
         // +  t0 * !t1 * !t2 * !t3
         // + !t0 *  t1 * !t2 * !t3
         // +  t0 * !t1 * !t2 *  t3
+        // = t0*!t1*!t2 + !t0*!t2*!t3
         .bar:nth-child(2) {
-          // background: bar();
+          background: bar(
+            OR(
+              AND3($t0, NOT($t1), NOT($t2)),
+              AND3(NOT($t0), NOT($t2), NOT($t3))
+            )
+          );
         }
 
         //   !t0 * !t1 * !t2 * !t3
         // + !t0 * !t1 *  t2 * !t3
         // + !t0 *  t1 *  t2 * !t3
         // +  t0 * !t1 * !t2 *  t3
+        // = !t3*!t2*!t1*!t0 + !t3*t2*!t0 + t3*!t2*!t1*t0
         .bar:nth-child(3) {
-          // background: bar();
+          background: bar(
+            OR3(
+              AND4(NOT($t3), NOT($t2), NOT($t1), NOT($t0)),
+              AND3(NOT($t3), $t2, NOT($t0)),
+              AND4($t3, NOT($t2), NOT($t1), $t0)
+            )
+          );
         }
 
         //   !t0 *  t1 * !t2 *!t3
         // + !t0 * !t1 *  t2 *!t3
         // +  t0 * !t1 *  t2 *!t3
         // + !t0 * !t1 * !t2 * t3
+        // = !t3*!t2*t1*!t0 + !t3*t2*!t1 + t3*!t2*!t1*!t0
         .bar:nth-child(4) {
-          background: bar();
+          background: bar(
+            OR3(
+              AND4(NOT($t3), NOT($t2), $t1, NOT($t0)),
+              AND3(NOT($t3), $t2, NOT($t1)),
+              AND4($t3, NOT($t2), NOT($t1), NOT($t0))
+            )
+          );
         }
 
         //    t0 * !t1 * !t2 * !t3
@@ -157,16 +177,31 @@
         // +  t0 * !t1 *  t2 * !t3
         // +  t0 *  t1 *  t2 * !t3
         // +  t0 * !t1 * !t2 *  t3
+        // = t0*t2*!t3 + t0*!t1*!t2 + t2*!t1*!t3 + t1*!t0*!t2*!t3
         .bar:nth-child(5) {
-          background: bar();
+          background: bar(
+            OR4(
+              AND3($t0, $t2, NOT($t3)),
+              AND3($t0, NOT($t1), NOT($t2)),
+              AND3(NOT($t1), $t2, NOT($t3)),
+              AND4($t1, NOT($t0), NOT($t2), NOT($t3))
+            )
+          );
         }
 
         //   !t0 * !t1 * !t2 * !t3
         // +  t0 * !t1 * !t2 * !t3
         // +  t0 *  t1 * !t2 * !t3
         // +  t0 * !t1 *  t2 * !t3
+        // = t0*!t1*!t3 + t0*!t2*!t3 + !t1*!t2*!t3
         .bar:nth-child(6) {
-          background: bar();
+          background: bar(
+            OR3(
+              AND3($t0, NOT($t1), NOT($t3)),
+              AND3($t0, NOT($t2), NOT($t3)),
+              AND3(NOT($t1), NOT($t2), NOT($t3))
+            )
+          );
         }
 
         // always 0
