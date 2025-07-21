@@ -46,6 +46,7 @@
 :root {
   --bar-width: 3px;
   --bar-height: 100px;
+  --guardbar-height: 110px;
 
   @for $i from 0 through 11 {
     --d#{zpad($i)}: 0;
@@ -65,14 +66,15 @@
   .left-margin,
   .right-margin {
     .bar {
-      background: white;
+      background: bar(0);
     }
   }
 
   .left-guardbar,
   .right-guardbar {
     .bar:nth-child(2n - 1) {
-      background: black;
+      background: bar(1);
+      height: var(--guardbar-height);
     }
   }
 

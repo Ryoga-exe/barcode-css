@@ -1,6 +1,7 @@
 :root {
   --bar-width: 3px;
   --bar-height: 100px;
+  --guardbar-height: 110px;
   --d00: 0;
   --d01: 0;
   --d02: 0;
