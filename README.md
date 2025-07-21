@@ -10,6 +10,6 @@ Barcode generator made with pure HTML & CSS - no JavaScript.
 ## Compile
 
 ```
-pug index.pug
-sass barcode.scss:barcode.css
+pug . --out dist
+sass barcode.scss:dist/barcode.css
 ```
