@@ -40,6 +40,9 @@ html(lang='en')
         +bar(3)
       .right-margin
         +bar(9)
+      .digits
+        - for (var i = 0; i < 13; i++)
+          .digit
     .digit-inputs
       +digit('input00', 'digit00')
       +digit('input01', 'digit01')
@@ -53,6 +56,3 @@ html(lang='en')
       +digit('input09', 'digit09')
       +digit('input10', 'digit10')
       +digit('input11', 'digit11')
-    #sum-even-digits
-    #sum-odd-digits
-    #check-digit

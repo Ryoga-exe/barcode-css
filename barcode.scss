@@ -50,8 +50,8 @@
 
 :root {
   --bar-width: 3px;
-  --bar-height: 100px;
-  --guardbar-height: 110px;
+  --bar-height: 130px;
+  --guardbar-height: 145px;
 
   @for $i from 0 through 11 {
     --d#{zpad($i)}: 0;
@@ -60,6 +60,7 @@
 
 #barcode {
   display: flex;
+  margin-bottom: 50px;
   > div {
     display: flex;
   }
@@ -393,6 +394,37 @@
       }
     }
   }
+
+  position: relative;
+  .digits {
+    .digit {
+      font-size: calc(12 * var(--bar-width));
+      line-height: 1cap;
+      font-family: monospace;
+
+      position: absolute;
+      bottom: calc(var(--guardbar-height) - var(--bar-height) - 1.2cap);
+    }
+    @for $digit from 0 through 12 {
+      .digit:nth-child(#{$digit + 1})::after {
+        counter-reset: val var(--d#{zpad($digit)});
+        content: counter(val);
+      }
+    }
+    .digit:nth-child(1) {
+      left: calc(2 * var(--bar-width));
+    }
+    @for $i from 0 through 5 {
+      .digit:nth-child(#{2 + $i}) {
+        left: calc(#{15 + $i * 7} * var(--bar-width));
+      }
+    }
+    @for $i from 0 through 5 {
+      .digit:nth-child(#{8 + $i}) {
+        left: calc(#{61 + $i * 7} * var(--bar-width));
+      }
+    }
+  }
 }
 
 // input
@@ -419,19 +451,4 @@
     10
   );
   --d12: var(--check-digit);
-}
-
-#sum-even-digits::after {
-  counter-reset: val var(--sum-even);
-  content: counter(val);
-}
-
-#sum-odd-digits::after {
-  counter-reset: val var(--sum-odd);
-  content: counter(val);
-}
-
-#check-digit::after {
-  counter-reset: val var(--check-digit);
-  content: counter(val);
 }

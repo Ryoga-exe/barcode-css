@@ -1,7 +1,7 @@
 :root {
   --bar-width: 3px;
-  --bar-height: 100px;
-  --guardbar-height: 110px;
+  --bar-height: 130px;
+  --guardbar-height: 145px;
   --d00: 0;
   --d01: 0;
   --d02: 0;
@@ -18,6 +18,8 @@
 
 #barcode {
   display: flex;
+  margin-bottom: 50px;
+  position: relative;
 }
 #barcode > div {
   display: flex;
@@ -471,6 +473,104 @@
 }
 #barcode .right-databar .datachar:nth-child(6) .bar:nth-child(7) {
   background: rgb(255, 255, 255);
+}
+#barcode .digits .digit {
+  font-size: calc(12 * var(--bar-width));
+  line-height: 1cap;
+  font-family: monospace;
+  position: absolute;
+  bottom: calc(var(--guardbar-height) - var(--bar-height) - 1.2cap);
+}
+#barcode .digits .digit:nth-child(1)::after {
+  counter-reset: val var(--d00);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(2)::after {
+  counter-reset: val var(--d01);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(3)::after {
+  counter-reset: val var(--d02);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(4)::after {
+  counter-reset: val var(--d03);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(5)::after {
+  counter-reset: val var(--d04);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(6)::after {
+  counter-reset: val var(--d05);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(7)::after {
+  counter-reset: val var(--d06);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(8)::after {
+  counter-reset: val var(--d07);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(9)::after {
+  counter-reset: val var(--d08);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(10)::after {
+  counter-reset: val var(--d09);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(11)::after {
+  counter-reset: val var(--d10);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(12)::after {
+  counter-reset: val var(--d11);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(13)::after {
+  counter-reset: val var(--d12);
+  content: counter(val);
+}
+#barcode .digits .digit:nth-child(1) {
+  left: calc(2 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(2) {
+  left: calc(15 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(3) {
+  left: calc(22 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(4) {
+  left: calc(29 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(5) {
+  left: calc(36 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(6) {
+  left: calc(43 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(7) {
+  left: calc(50 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(8) {
+  left: calc(61 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(9) {
+  left: calc(68 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(10) {
+  left: calc(75 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(11) {
+  left: calc(82 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(12) {
+  left: calc(89 * var(--bar-width));
+}
+#barcode .digits .digit:nth-child(13) {
+  left: calc(96 * var(--bar-width));
 }
 
 :root:has(.digit00 input[value="0"]:checked) {
@@ -965,21 +1065,6 @@
     10
   );
   --d12: var(--check-digit);
-}
-
-#sum-even-digits::after {
-  counter-reset: val var(--sum-even);
-  content: counter(val);
-}
-
-#sum-odd-digits::after {
-  counter-reset: val var(--sum-odd);
-  content: counter(val);
-}
-
-#check-digit::after {
-  counter-reset: val var(--check-digit);
-  content: counter(val);
 }
 
 /*# sourceMappingURL=barcode.css.map */
