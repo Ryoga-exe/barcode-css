@@ -11,34 +11,34 @@
 }
 
 // logical operations
-@function not($x) {
+@function NOT($x) {
   @return calc(1 - $x);
 }
 
-@function and($x, $y) {
+@function AND($x, $y) {
   @return calc($x * $y);
 }
 
-@function and3($x, $y, $z) {
+@function AND3($x, $y, $z) {
   @return calc($x * $y * $z);
 }
 
-@function and4($x, $y, $z, $w) {
+@function AND4($x, $y, $z, $w) {
   @return calc($x * $y * $z * $w);
 }
 
-@function or($x, $y) {
+@function OR($x, $y) {
   // x + y
   // = !(!(x + y))
   // = !(!x * !y)
   @return calc(1 - (1 - $x) * (1 - $y));
 }
 
-@function or3($x, $y, $z) {
+@function OR3($x, $y, $z) {
   @return calc(1 - (1 - $x) * (1 - $y) * (1 - $z));
 }
 
-@function or4($x, $y, $z, $w) {
+@function OR4($x, $y, $z, $w) {
   @return calc(1 - (1 - $x) * (1 - $y) * (1 - $z) * (1 - $w));
 }
 // ---------
