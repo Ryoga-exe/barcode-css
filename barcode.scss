@@ -58,6 +58,10 @@
   > div {
     display: flex;
   }
+  .datachar {
+    display: flex;
+  }
+
   .bar {
     width: var(--bar-width);
     height: var(--bar-height);
@@ -80,11 +84,101 @@
 
   .center-bar {
     .bar.bar:nth-child(2n) {
-      background: black;
+      background: bar(1);
+      height: var(--guardbar-height);
+    }
+  }
+
+  .right-databar {
+    // process d07 ... d11 and d12 (check-digit)
+    @for $i from 0 through 5 {
+      .datachar:nth-child(#{$i + 1}) {
+        $t: "--d#{zpad(7 + $i)}";
+
+        // to binary
+        @for $j from 0 through 3 {
+          @if $j == 0 {
+            --tmp#{$j}: var(#{$t});
+          } @else {
+            --tmp#{$j}: calc((var(--tmp#{$j - 1}) - var(--t#{$j - 1})) / 2);
+          }
+          --t#{$j}: mod(var(--tmp#{$j}), 2);
+        }
+
+        $t0: var(--t0);
+        $t1: var(--t1);
+        $t2: var(--t2);
+        $t3: var(--t3);
+
+        // encode $x to data character
+        // 0: 1110010
+        // 1: 1100110
+        // 2: 1101100
+        // 3: 1000010
+        // 4: 1011100
+        // 5: 1001110
+        // 6: 1010000
+        // 7: 1000100
+        // 8: 1001000
+        // 9: 1110100
+
+        // always 1
+        .bar:nth-child(1) {
+          background: bar(1);
+        }
+
+        //   !t0 * !t1 * !t2 * !t3
+        // +  t0 * !t1 * !t2 * !t3
+        // + !t0 *  t1 * !t2 * !t3
+        // +  t0 * !t1 * !t2 *  t3
+        .bar:nth-child(2) {
+          // background: bar();
+        }
+
+        //   !t0 * !t1 * !t2 * !t3
+        // + !t0 * !t1 *  t2 * !t3
+        // + !t0 *  t1 *  t2 * !t3
+        // +  t0 * !t1 * !t2 *  t3
+        .bar:nth-child(3) {
+          // background: bar();
+        }
+
+        //   !t0 *  t1 * !t2 *!t3
+        // + !t0 * !t1 *  t2 *!t3
+        // +  t0 * !t1 *  t2 *!t3
+        // + !t0 * !t1 * !t2 * t3
+        .bar:nth-child(4) {
+          background: bar();
+        }
+
+        //    t0 * !t1 * !t2 * !t3
+        // + !t0 *  t1 * !t2 * !t3
+        // + !t0 * !t1 *  t2 * !t3
+        // +  t0 * !t1 *  t2 * !t3
+        // +  t0 *  t1 *  t2 * !t3
+        // +  t0 * !t1 * !t2 *  t3
+        .bar:nth-child(5) {
+          background: bar();
+        }
+
+        //   !t0 * !t1 * !t2 * !t3
+        // +  t0 * !t1 * !t2 * !t3
+        // +  t0 *  t1 * !t2 * !t3
+        // +  t0 * !t1 *  t2 * !t3
+        .bar:nth-child(6) {
+          background: bar();
+        }
+
+        // always 0
+        .bar:nth-child(7) {
+          background: bar(0);
+        }
+      }
     }
   }
 }
 
+// input
 @for $digit from 0 through 11 {
   $cls: "digit#{zpad($digit)}";
 
@@ -95,6 +189,7 @@
   }
 }
 
+// calculate check-digit
 :root {
   --sum-even: calc(
     var(--d00) + var(--d02) + var(--d04) + var(--d06) + var(--d08) + var(--d10)
@@ -102,10 +197,11 @@
   --sum-odd: calc(
     var(--d01) + var(--d03) + var(--d05) + var(--d07) + var(--d09) + var(--d11)
   );
-  --check-digit: rem(
-    calc(10 - rem(calc(var(--sum-odd) * 3 + var(--sum-even)), 10)),
+  --check-digit: mod(
+    calc(10 - mod(calc(var(--sum-odd) * 3 + var(--sum-even)), 10)),
     10
   );
+  --d12: var(--check-digit);
 }
 
 #sum-even-digits::after {

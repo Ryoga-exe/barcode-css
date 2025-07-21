@@ -22,20 +22,175 @@
 #barcode > div {
   display: flex;
 }
+#barcode .datachar {
+  display: flex;
+}
 #barcode .bar {
   width: var(--bar-width);
   height: var(--bar-height);
 }
 #barcode .left-margin .bar,
 #barcode .right-margin .bar {
-  background: white;
+  background: rgb(255, 255, 255);
 }
 #barcode .left-guardbar .bar:nth-child(2n-1),
 #barcode .right-guardbar .bar:nth-child(2n-1) {
-  background: black;
+  background: rgb(0, 0, 0);
+  height: var(--guardbar-height);
 }
 #barcode .center-bar .bar.bar:nth-child(2n) {
-  background: black;
+  background: rgb(0, 0, 0);
+  height: var(--guardbar-height);
+}
+#barcode .right-databar .datachar:nth-child(1) {
+  --tmp0: var(--d07);
+  --t0: mod(var(--tmp0), 2);
+  --tmp1: calc((var(--tmp0) - var(--t0)) / 2);
+  --t1: mod(var(--tmp1), 2);
+  --tmp2: calc((var(--tmp1) - var(--t1)) / 2);
+  --t2: mod(var(--tmp2), 2);
+  --tmp3: calc((var(--tmp2) - var(--t2)) / 2);
+  --t3: mod(var(--tmp3), 2);
+}
+#barcode .right-databar .datachar:nth-child(1) .bar:nth-child(1) {
+  background: rgb(0, 0, 0);
+}
+#barcode .right-databar .datachar:nth-child(1) .bar:nth-child(2) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))));
+}
+#barcode .right-databar .datachar:nth-child(1) .bar:nth-child(3) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))));
+}
+#barcode .right-databar .datachar:nth-child(1) .bar:nth-child(4) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))));
+}
+#barcode .right-databar .datachar:nth-child(1) .bar:nth-child(7) {
+  background: rgb(255, 255, 255);
+}
+#barcode .right-databar .datachar:nth-child(2) {
+  --tmp0: var(--d08);
+  --t0: mod(var(--tmp0), 2);
+  --tmp1: calc((var(--tmp0) - var(--t0)) / 2);
+  --t1: mod(var(--tmp1), 2);
+  --tmp2: calc((var(--tmp1) - var(--t1)) / 2);
+  --t2: mod(var(--tmp2), 2);
+  --tmp3: calc((var(--tmp2) - var(--t2)) / 2);
+  --t3: mod(var(--tmp3), 2);
+}
+#barcode .right-databar .datachar:nth-child(2) .bar:nth-child(1) {
+  background: rgb(0, 0, 0);
+}
+#barcode .right-databar .datachar:nth-child(2) .bar:nth-child(2) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))));
+}
+#barcode .right-databar .datachar:nth-child(2) .bar:nth-child(3) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))));
+}
+#barcode .right-databar .datachar:nth-child(2) .bar:nth-child(4) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))));
+}
+#barcode .right-databar .datachar:nth-child(2) .bar:nth-child(7) {
+  background: rgb(255, 255, 255);
+}
+#barcode .right-databar .datachar:nth-child(3) {
+  --tmp0: var(--d09);
+  --t0: mod(var(--tmp0), 2);
+  --tmp1: calc((var(--tmp0) - var(--t0)) / 2);
+  --t1: mod(var(--tmp1), 2);
+  --tmp2: calc((var(--tmp1) - var(--t1)) / 2);
+  --t2: mod(var(--tmp2), 2);
+  --tmp3: calc((var(--tmp2) - var(--t2)) / 2);
+  --t3: mod(var(--tmp3), 2);
+}
+#barcode .right-databar .datachar:nth-child(3) .bar:nth-child(1) {
+  background: rgb(0, 0, 0);
+}
+#barcode .right-databar .datachar:nth-child(3) .bar:nth-child(2) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))));
+}
+#barcode .right-databar .datachar:nth-child(3) .bar:nth-child(3) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))));
+}
+#barcode .right-databar .datachar:nth-child(3) .bar:nth-child(4) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))));
+}
+#barcode .right-databar .datachar:nth-child(3) .bar:nth-child(7) {
+  background: rgb(255, 255, 255);
+}
+#barcode .right-databar .datachar:nth-child(4) {
+  --tmp0: var(--d10);
+  --t0: mod(var(--tmp0), 2);
+  --tmp1: calc((var(--tmp0) - var(--t0)) / 2);
+  --t1: mod(var(--tmp1), 2);
+  --tmp2: calc((var(--tmp1) - var(--t1)) / 2);
+  --t2: mod(var(--tmp2), 2);
+  --tmp3: calc((var(--tmp2) - var(--t2)) / 2);
+  --t3: mod(var(--tmp3), 2);
+}
+#barcode .right-databar .datachar:nth-child(4) .bar:nth-child(1) {
+  background: rgb(0, 0, 0);
+}
+#barcode .right-databar .datachar:nth-child(4) .bar:nth-child(2) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))));
+}
+#barcode .right-databar .datachar:nth-child(4) .bar:nth-child(3) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))));
+}
+#barcode .right-databar .datachar:nth-child(4) .bar:nth-child(4) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))));
+}
+#barcode .right-databar .datachar:nth-child(4) .bar:nth-child(7) {
+  background: rgb(255, 255, 255);
+}
+#barcode .right-databar .datachar:nth-child(5) {
+  --tmp0: var(--d11);
+  --t0: mod(var(--tmp0), 2);
+  --tmp1: calc((var(--tmp0) - var(--t0)) / 2);
+  --t1: mod(var(--tmp1), 2);
+  --tmp2: calc((var(--tmp1) - var(--t1)) / 2);
+  --t2: mod(var(--tmp2), 2);
+  --tmp3: calc((var(--tmp2) - var(--t2)) / 2);
+  --t3: mod(var(--tmp3), 2);
+}
+#barcode .right-databar .datachar:nth-child(5) .bar:nth-child(1) {
+  background: rgb(0, 0, 0);
+}
+#barcode .right-databar .datachar:nth-child(5) .bar:nth-child(2) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))));
+}
+#barcode .right-databar .datachar:nth-child(5) .bar:nth-child(3) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))));
+}
+#barcode .right-databar .datachar:nth-child(5) .bar:nth-child(4) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))));
+}
+#barcode .right-databar .datachar:nth-child(5) .bar:nth-child(7) {
+  background: rgb(255, 255, 255);
+}
+#barcode .right-databar .datachar:nth-child(6) {
+  --tmp0: var(--d12);
+  --t0: mod(var(--tmp0), 2);
+  --tmp1: calc((var(--tmp0) - var(--t0)) / 2);
+  --t1: mod(var(--tmp1), 2);
+  --tmp2: calc((var(--tmp1) - var(--t1)) / 2);
+  --t2: mod(var(--tmp2), 2);
+  --tmp3: calc((var(--tmp2) - var(--t2)) / 2);
+  --t3: mod(var(--tmp3), 2);
+}
+#barcode .right-databar .datachar:nth-child(6) .bar:nth-child(1) {
+  background: rgb(0, 0, 0);
+}
+#barcode .right-databar .datachar:nth-child(6) .bar:nth-child(2) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * (1 - var(--t2)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t1))))));
+}
+#barcode .right-databar .datachar:nth-child(6) .bar:nth-child(3) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))), calc(255 * (1 - (1 - (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * var(--t2) * (1 - var(--t3))) * (1 - var(--t0) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3))))));
+}
+#barcode .right-databar .datachar:nth-child(6) .bar:nth-child(4) {
+  background: rgb(calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))), calc(255 * (1 - (1 - (1 - (1 - var(--t1)) * var(--t2) * (1 - var(--t3))) * (1 - (1 - var(--t0)) * (1 - var(--t1)) * (1 - var(--t2)) * var(--t3)) * (1 - (1 - var(--t0)) * var(--t1) * (1 - var(--t2)) * (1 - var(--t3)))))));
+}
+#barcode .right-databar .datachar:nth-child(6) .bar:nth-child(7) {
+  background: rgb(255, 255, 255);
 }
 
 :root:has(.digit00 input[value="0"]:checked) {
@@ -525,10 +680,11 @@
   --sum-odd: calc(
     var(--d01) + var(--d03) + var(--d05) + var(--d07) + var(--d09) + var(--d11)
   );
-  --check-digit: rem(
-    calc(10 - rem(calc(var(--sum-odd) * 3 + var(--sum-even)), 10)),
+  --check-digit: mod(
+    calc(10 - mod(calc(var(--sum-odd) * 3 + var(--sum-even)), 10)),
     10
   );
+  --d12: var(--check-digit);
 }
 
 #sum-even-digits::after {
