@@ -4,8 +4,42 @@
 }
 
 :root {
+  --bar-width: 3px;
+  --bar-height: 100px;
+
   @for $i from 0 through 11 {
     --d#{zpad($i)}: 0;
+  }
+}
+
+#barcode {
+  display: flex;
+  > div {
+    display: flex;
+  }
+  .bar {
+    width: var(--bar-width);
+    height: var(--bar-height);
+  }
+
+  .left-margin,
+  .right-margin {
+    .bar {
+      background: white;
+    }
+  }
+
+  .left-guardbar,
+  .right-guardbar {
+    .bar:nth-child(2n - 1) {
+      background: black;
+    }
+  }
+
+  .center-bar {
+    .bar.bar:nth-child(2n) {
+      background: black;
+    }
   }
 }
 

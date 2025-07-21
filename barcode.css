@@ -1,4 +1,6 @@
 :root {
+  --bar-width: 3px;
+  --bar-height: 100px;
   --d00: 0;
   --d01: 0;
   --d02: 0;
@@ -11,6 +13,28 @@
   --d09: 0;
   --d10: 0;
   --d11: 0;
+}
+
+#barcode {
+  display: flex;
+}
+#barcode > div {
+  display: flex;
+}
+#barcode .bar {
+  width: var(--bar-width);
+  height: var(--bar-height);
+}
+#barcode .left-margin .bar,
+#barcode .right-margin .bar {
+  background: white;
+}
+#barcode .left-guardbar .bar:nth-child(2n-1),
+#barcode .right-guardbar .bar:nth-child(2n-1) {
+  background: black;
+}
+#barcode .center-bar .bar.bar:nth-child(2n) {
+  background: black;
 }
 
 :root:has(.digit00 input[value="0"]:checked) {

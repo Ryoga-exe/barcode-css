@@ -8,6 +8,10 @@ mixin digit(group, cls)
         input(type='radio' id=id name=group, value=n checked=(n === 0))
         label(for=id)= n
 
+mixin bar(n)
+  - for (var i = 0; i < n; i++)
+    .bar
+
 doctype html
 html(lang='en')
   head
@@ -16,6 +20,21 @@ html(lang='en')
     title
     link(rel='stylesheet', href='barcode.css')
   body
+    #barcode
+      .left-margin
+        +bar(11)
+      .left-guardbar
+        +bar(3)
+      .left-databar
+        +bar(42)
+      .center-bar
+        +bar(5)
+      .right-databar
+        +bar(42)
+      .right-guardbar
+        +bar(3)
+      .right-margin
+        +bar(9)
     .digit-inputs
       +digit('input00', 'digit00')
       +digit('input01', 'digit01')
